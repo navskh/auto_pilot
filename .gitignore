@@ -1,0 +1,7 @@
+/node_modules
+
+# log파일 제외
+/logs
+/error
+
+/data/*

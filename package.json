@@ -1,0 +1,19 @@
+{
+  "name": "puppeteer",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "Puppeteer test",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon ./src/tests.mjs",
+    "start": "nodemon ./src/index.js",
+    "stack": "cross-env NODE_ENV=stack nodemon ./src/index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.0.3",
+    "puppeteer": "^22.1.0",
+    "winston": "^3.11.0"
+  }
+}
