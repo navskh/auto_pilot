@@ -1,4 +1,4 @@
-const { accessUrl } = require('../service/puppet');
+const { accessUrl } = require('../service/use-puppet');
 const { wait } = require('../utils/my-puppet');
 
 describe('폼 생성 테스트', () => {

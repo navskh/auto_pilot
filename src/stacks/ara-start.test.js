@@ -1,4 +1,4 @@
-const { accessUrl } = require('../service/puppet');
+const { accessUrl } = require('../service/use-puppet');
 
 describe('최초 테스트', () => {
   let page = null;
