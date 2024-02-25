@@ -175,6 +175,19 @@ global.expect = value => {
         );
       }
     },
+    toBeNull: () => {
+      if (value !== null) {
+        throw new Error(`예상 값은 null이지만, 실제 값은 ${value}입니다.`);
+      }
+    },
+    not: {
+      toBeNull: () => {
+        if (value === null) {
+          throw new Error(`예상 값은 null이 아니지만, 실제 값은 null입니다.`);
+        }
+      },
+      // 다른 not 매처 함수들...
+    },
     // 필요에 따라 더 많은 matcher 함수를 추가할 수 있습니다.
   };
 };
