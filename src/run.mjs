@@ -33,6 +33,8 @@ function getTestFiles(dir) {
 
 // tests 폴더에서 .test.js 파일을 가져와 실행
 async function runTests() {
+  const dir = process.env.NODE_ENV ?? 'tests';
+  const testDir = path.join(__dirname, dir);
   const testFiles = getTestFiles(testDir);
 
   for (const file of testFiles) {
@@ -44,16 +46,4 @@ async function runTests() {
   }
 }
 
-async function runStacks() {
-  const testFiles = getTestFiles(stackDir);
-
-  for (const file of testFiles) {
-    console.log(`실행 중: ${file}`);
-    await import(path.resolve(file));
-    await runAllTest();
-    tests = [];
-    onlys = [];
-  }
-}
-
-export default { runTests, runStacks };
+export default { runTests };

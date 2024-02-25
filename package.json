@@ -7,7 +7,8 @@
   "scripts": {
     "test": "nodemon ./src/tests.mjs",
     "start": "nodemon ./src/index.js",
-    "stack": "cross-env NODE_ENV=stack nodemon ./src/index.js"
+    "stack": "cross-env NODE_ENV=stacks nodemon ./src/index.js",
+    "ara": "cross-env NODE_ENV=ara nodemon ./src/index.js"
   },
   "dependencies": {
     "chalk": "^4.1.2",
