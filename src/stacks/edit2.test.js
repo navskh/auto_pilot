@@ -1,7 +1,7 @@
 const { accessUrl, dndFromTo } = require('../service/use-puppet');
-const removeAndCombine = require('../utils/combine');
+const { removeAndCombine } = require('../utils/combine');
 
-const testURL = 'http://tedi.jinhakapply.com/A?univServiceId=999801&test=true';
+const testURL = 'http://tedi.jinhakapply.com/A?univServiceId=999999&test=true';
 
 describe('에디터 테스트 2차', () => {
   let page;

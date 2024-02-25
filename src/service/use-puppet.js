@@ -39,7 +39,9 @@ async function dndDifferentElement(
   }, selectorDrop);
 
   // 드래그 시작 위치로 이동
-  const xDragPoint = rectDrag.left + rectDrag.width / 2 / 2;
+  const xDragPoint = xOffset
+    ? rectDrag.left + rectDrag.width / 2 / 2 + xOffset
+    : rectDrag.left + rectDrag.width / 2 / 2;
   const yDragPoint = rectDrag.top + rectDrag.height / 2;
   const xDropPoint = rectDrop.left + rectDrop.width / 2 / 2;
   const yDropPoint = rectDrop.top + rectDrop.height / 2;
