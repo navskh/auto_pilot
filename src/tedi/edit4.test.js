@@ -1,8 +1,15 @@
-const { accessUrl, dndDifferentElement } = require('../service/use-puppet');
-const { getParentHTML } = require('../utils/my-puppet');
-const testURL = 'http://tedi.jinhakapply.com/A?univServiceId=999999&test=true';
+// const { testURL } = require('../service/setting');
+const {
+  accessUrl,
+  dndDifferentElement,
+  dndFromTo,
+} = require('../service/use-puppet');
+const { getParentHTML, extractInnerHTML } = require('../utils/my-puppet');
+
+const testURL = 'http://localhost:3000/A?univServiceId=999801&test=true';
+
 describe('에디터 테스트 4차', () => {
-  test.skip('11. 다른 엘리먼트를 넘어서 볼드 테스트 ', async () => {
+  test('11. 다른 엘리먼트를 넘어서 볼드 테스트 ', async () => {
     const { page } = await accessUrl(testURL);
     const dragTargetSelector =
       '.list_schedule_flex.col3 > div:nth-child(2) > div.note > ul > li:nth-child(1)';
@@ -62,8 +69,6 @@ describe('에디터 테스트 4차', () => {
     await page.waitForSelector('.b_menu_bold1');
     await page.click('.b_menu_bold1');
 
-    console.log('dragText2,', dragText2);
-
     //dragText 가 실제 bold 처리가 잘 되는지 확인할 것
     // bold 처리 된 텍스트를 가져옴
     const parentElement = await getParentHTML(page, dropTargetSelector);
@@ -74,8 +79,29 @@ describe('에디터 테스트 4차', () => {
 
     expect(parentElement).toBe(expectedText);
   });
-  test.skip(
-    '13. 스타일 매겨져 있는 곳에 그대로 다른 스타일 매길 시 제대로 들어가는 지 확인',
-  );
-  test.skip('14. 링크를 매겼을 때 잘 매겨지는 지 확인');
+  test('13. 스타일 매겨져 있는 곳에 그대로 다른 스타일 매길 시 제대로 들어가는 지 확인', async () => {
+    const { page } = await accessUrl(testURL);
+    const targetSelector =
+      '.list_schedule_flex.col3 > div:nth-child(2) > div.note > ul > li:nth-child(1)';
+    await page.waitForSelector(targetSelector);
+    const originHTML = await extractInnerHTML(page, targetSelector);
+
+    await dndFromTo(page, targetSelector, 50, 150);
+    await page.waitForSelector('.b_menu_bold1');
+    await page.click('.b_menu_bold1');
+    // 클릭 한번으로 selection 초기화
+    await page.click(targetSelector);
+
+    const dragTextAfterToggle = await dndFromTo(page, targetSelector, 50, 150);
+    await page.waitForSelector('.b_menu_italic1');
+    await page.click('.b_menu_italic1');
+
+    const innerHTML = await extractInnerHTML(page, targetSelector);
+    const expectedHTML = originHTML.replace(
+      dragTextAfterToggle,
+      `<span class="font_bold italic">${dragTextAfterToggle}</span>`,
+    );
+
+    expect(innerHTML).toBe(expectedHTML);
+  });
 });

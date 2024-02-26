@@ -1,3 +1,4 @@
+const { testURL } = require('../service/setting');
 const { accessUrl } = require('../service/use-puppet');
 
 describe('시작 테스트 ', () => {
@@ -6,11 +7,7 @@ describe('시작 테스트 ', () => {
   let browser;
 
   beforeAll('준비', async () => {
-    const {
-      page: p,
-      status: s,
-      browser: b,
-    } = await accessUrl('http://tedi.jinhakapply.com/');
+    const { page: p, status: s, browser: b } = await accessUrl(testURL);
     page = p;
     status = s;
     browser = b;

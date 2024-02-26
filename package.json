@@ -8,7 +8,10 @@
     "test": "nodemon ./src/tests.mjs",
     "start": "nodemon ./src/index.js",
     "stack": "cross-env NODE_ENV=stacks nodemon ./src/index.js",
-    "ara": "cross-env NODE_ENV=ara nodemon ./src/index.js"
+    "ara": "cross-env NODE_ENV=ara nodemon ./src/index.js",
+    "lara": "cross-env NODE_ENV=ara PATH_ENV=local nodemon ./src/index.js",
+    "tedi": "cross-env NODE_ENV=tedi nodemon ./src/index.js",
+    "ltedi": "cross-env NODE_ENV=tedi PATH_ENV=local nodemon ./src/index.js"
   },
   "dependencies": {
     "chalk": "^4.1.2",

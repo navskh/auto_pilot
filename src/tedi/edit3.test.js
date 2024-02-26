@@ -1,3 +1,4 @@
+const { testURL } = require('../service/setting');
 const { accessUrl, dndFromTo } = require('../service/use-puppet');
 const {
   removeAndCombine,
@@ -8,8 +9,6 @@ const {
   extractByClass,
   wait,
 } = require('../utils/my-puppet');
-
-const testURL = 'http://tedi.jinhakapply.com/A?univServiceId=999999&test=true';
 
 describe('에디터 테스트 3차', () => {
   test('8. 스타일 기적용 되어있는 엘리먼트 안을 드래그 하여, 동일 스타일 토글 시킬 때', async () => {
