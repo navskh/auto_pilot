@@ -175,6 +175,13 @@ global.expect = value => {
         );
       }
     },
+    toContainString: expectedSubstring => {
+      if (!value.includes(expectedSubstring)) {
+        throw new Error(
+          `"${value}"에는 "${expectedSubstring}" 문자열이 포함되어 있지 않습니다.`,
+        );
+      }
+    },
     toBeNull: () => {
       if (value !== null) {
         throw new Error(`예상 값은 null이지만, 실제 값은 ${value}입니다.`);
