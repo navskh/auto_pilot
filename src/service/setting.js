@@ -15,4 +15,6 @@ const testURL =
     ? 'http://localhost:3000/A?univServiceId=999801&test=true'
     : 'http://tedi.jinhakapply.com/A?univServiceId=999999&test=true';
 
-module.exports = { setting, viewPort, testURL };
+const araURL = 'https://ara.jinhakapply.com';
+
+module.exports = { setting, viewPort, testURL, araURL };

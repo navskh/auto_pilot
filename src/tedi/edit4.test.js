@@ -1,4 +1,5 @@
 // const { testURL } = require('../service/setting');
+const { testURL } = require('../service/setting');
 const {
   accessUrl,
   dndDifferentElement,
@@ -6,7 +7,7 @@ const {
 } = require('../service/use-puppet');
 const { getParentHTML, extractInnerHTML } = require('../utils/my-puppet');
 
-const testURL = 'http://localhost:3000/A?univServiceId=999801&test=true';
+// const testURL = 'http://localhost:3000/A?univServiceId=999801&test=true';
 
 describe('에디터 테스트 4차', () => {
   test('11. 다른 엘리먼트를 넘어서 볼드 테스트 ', async () => {
